@@ -4,6 +4,7 @@ bin_PROGRAMS = \
 		nfc-anticol \
 		nfc-dep-initiator \
 		nfc-dep-target \
+		nfc-emu \
 		nfc-emulate-forum-tag2 \
 		nfc-emulate-tag \
 		nfc-emulate-uid \
@@ -26,6 +27,10 @@ check_PROGRAMS = \
 AM_CPPFLAGS = $(all_includes) $(LIBNFC_CFLAGS)
 
 AM_CFLAGS = -I$(top_srcdir)/libnfc -I$(top_srcdir)
+
+nfc_emu_SOURCES = nfc-emu.c
+nfc_emu_LDADD = $(top_builddir)/libnfc/libnfc.la \
+		$(top_builddir)/utils/libnfcutils.la
 
 nfc_poll_SOURCES = nfc-poll.c
 nfc_poll_LDADD = $(top_builddir)/libnfc/libnfc.la \
@@ -89,6 +94,7 @@ dist_man_MANS = \
 		nfc-anticol.1 \
 		nfc-dep-initiator.1 \
 		nfc-dep-target.1 \
+		nfc-emu.1 \
 		nfc-emulate-tag.1 \
 		nfc-emulate-uid.1 \
 		nfc-poll.1 \

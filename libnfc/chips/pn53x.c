@@ -2239,10 +2239,10 @@ pn53x_target_init(struct nfc_device *pnd, nfc_target *pnt, uint8_t *pbtRx, const
   switch (pnt->nm.nmt) {
     case NMT_ISO14443A:
       ptm = PTM_PASSIVE_ONLY;
-      if ((pnt->nti.nai.abtUid[0] != 0x08) || (pnt->nti.nai.szUidLen != 4)) {
+      /*if ((pnt->nti.nai.abtUid[0] != 0x08) || (pnt->nti.nai.szUidLen != 4)) {
         pnd->last_error = NFC_EINVARG;
         return pnd->last_error;
-      }
+      }*/
       pn53x_set_parameters(pnd, PARAM_AUTO_ATR_RES, false);
       if (CHIP_DATA(pnd)->type == PN532) { // We have a PN532
         if ((pnt->nti.nai.btSak & SAK_ISO14443_4_COMPLIANT) && (pnd->bAutoIso14443_4)) {
